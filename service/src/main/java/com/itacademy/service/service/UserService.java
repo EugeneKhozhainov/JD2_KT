@@ -2,14 +2,14 @@ package com.itacademy.service.service;
 
 
 import com.itacademy.database.dao.UserDao;
-import com.itacademy.database.entity.User;
+import com.itacademy.database.entity.UserEntity;
 
 public class UserService {
 
     private static final UserService INSTANCE = new UserService();
     private final UserDao userDao = UserDao.getInstance();
 
-    public User getDefaultUser() {
+    public UserEntity getDefaultUser() {
         return userDao.getDefaultUser();
     }
 
