@@ -9,6 +9,7 @@ import java.util.List;
 @Data
 @Getter
 @Setter
+@ToString(exclude = "company")
 @EqualsAndHashCode(of = "id")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,7 +17,7 @@ import java.util.List;
 @Entity
 @Table(name = "users", schema = "car_rent_storage")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class UserEntity extends BaseEntity{
+public class UserEntity extends BaseEntity<Long>{
 
     public String name;
 
@@ -31,3 +32,4 @@ public class UserEntity extends BaseEntity{
     @Enumerated(EnumType.STRING)
     public Role role;
 }
+

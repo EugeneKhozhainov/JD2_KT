@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "car_description", schema = "car_rent_storage")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class CarDescription extends BaseEntity {
+public class CarDescription extends BaseEntity<Long> {
 
     public String description;
 

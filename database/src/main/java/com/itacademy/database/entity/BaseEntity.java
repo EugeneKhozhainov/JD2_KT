@@ -5,14 +5,15 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @MappedSuperclass
 @Getter
 @Setter
 @ToString
-public abstract class BaseEntity {
+public abstract class BaseEntity<PK extends Serializable> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer id;
+    public PK id;
 }

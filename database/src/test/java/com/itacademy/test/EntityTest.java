@@ -16,7 +16,7 @@ import java.io.Serializable;
 
 import static org.junit.Assert.assertNotNull;
 
-public class EntitySaveAndGetTest {
+public class EntityTest {
 
     private static final SessionFactory FACTORY = new Configuration().configure().buildSessionFactory();
 

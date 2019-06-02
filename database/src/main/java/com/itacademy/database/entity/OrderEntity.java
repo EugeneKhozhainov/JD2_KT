@@ -15,7 +15,7 @@ import java.util.Date;
 @Entity
 @Table(name = "orders", schema = "car_rent_storage")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class OrderEntity extends BaseEntity {
+public class OrderEntity extends BaseEntity<Long> {
 
     public String passport;
 
