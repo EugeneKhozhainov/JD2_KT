@@ -14,7 +14,7 @@ import java.util.Set;
 @Entity
 @Table(name = "company", schema = "car_rent_storage")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Company extends BaseEntity {
+public class Company extends BaseEntity<Long> {
 
     private String name;
 

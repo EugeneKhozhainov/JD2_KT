@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Builder
 @Table(name = "car", schema = "car_rent_storage")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class CarEntity extends BaseEntity{
+public class CarEntity extends BaseEntity<Long>{
 
     public String brand;
 

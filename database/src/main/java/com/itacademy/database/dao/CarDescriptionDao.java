@@ -7,18 +7,18 @@ import lombok.ToString;
 
 
 
-public class CarDescriptionDao {
+public class CarDescriptionDao extends  BaseDaoImpl<Long, CarDescription> {
 
     private static final CarDescriptionDao INSTANCE = new CarDescriptionDao();
+
+    public static CarDescriptionDao getInstance() {
+        return INSTANCE;
+    }
 
     public CarDescription getDefaultCarDescription() {
         return CarDescription.builder()
                 .description("New car")
                 .carEntity(CarDao.getInstance().getDefaultCar())
                 .build();
-    }
-
-    public static CarDescriptionDao getInstance() {
-        return INSTANCE;
     }
 }

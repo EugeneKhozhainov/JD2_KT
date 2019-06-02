@@ -28,6 +28,7 @@
     <orderEntry type="module" module-name="database" />
     <orderEntry type="library" name="Maven: org.postgresql:postgresql:42.2.5" level="project" />
     <orderEntry type="library" name="Maven: jstl:jstl:1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-servlet-api:9.0.12" level="project" />
     <orderEntry type="library" name="Maven: cobertura:cobertura:1.8" level="project" />
     <orderEntry type="library" name="Maven: oro:oro:2.0.8" level="project" />
     <orderEntry type="library" name="Maven: asm:asm:2.2.1" level="project" />
