@@ -14,5 +14,4 @@ public interface CarRepository extends PagingAndSortingRepository<CarEntity, Lon
 
     @Query("select e from CarEntity e where e.brand = :brand and e.model = :model and e.price > :price order by e.price")
     List<CarEntity> getFiltered(@Param("brand") String brand, @Param("model") String model, @Param("price") Double price, Pageable pageable);
-
 }

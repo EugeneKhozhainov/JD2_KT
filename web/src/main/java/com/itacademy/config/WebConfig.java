@@ -1,12 +1,11 @@
 package com.itacademy.config;
 
-import com.itacademy.database.config.DatabaseConfig;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
-@Import(ServiceConfig.class)
 @ComponentScan(basePackages = "com.itacademy")
+@EnableWebMvc
 public class WebConfig {
 }

@@ -2,6 +2,7 @@ package com.itacademy.database.dao;
 
 import com.itacademy.database.dao.util.SessionManager;
 import com.itacademy.database.entity.BaseEntity;
+
 import lombok.Cleanup;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -18,7 +19,6 @@ import java.util.Optional;
 import static com.itacademy.database.dao.util.SessionManager.getSession;
 
 public class BaseDaoImpl<T extends Serializable, E extends BaseEntity<T>> implements BaseDao<T, E> {
-
 
     private Class<E> clazz;
 
