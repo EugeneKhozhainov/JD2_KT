@@ -10,7 +10,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
-@Import(ServiceConfig.class)
 @ComponentScan(basePackages = "com.itacademy")
 @EnableWebMvc
 public class WebConfig {
@@ -18,7 +17,7 @@ public class WebConfig {
     @Bean
     public ViewResolver viewResolver(){
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setPrefix("/WEB-INF/jsp/");
+        viewResolver.setPrefix("WEB-INF/jsp/");
         viewResolver.setSuffix(".jsp");
 
         return viewResolver;

@@ -19,8 +19,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@Service
-@WebServlet("/car")
+/*@Service
+@WebServlet("/car")*/
 public class CarServlet extends HttpServlet {
     private static final int DEFAULT_PAGE_NUMBER = 1;
     private static final int DEFAULT_PAGE_SIZE = 5;
