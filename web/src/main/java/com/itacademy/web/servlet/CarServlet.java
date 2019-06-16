@@ -32,7 +32,7 @@ public class CarServlet extends HttpServlet {
 
     private ApplicationContext springContext = null;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+   /* protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         getData(DEFAULT_BRAND, DEFAULT_MODEL, DEFAULT_PRICE, DEFAULT_PAGE_NUMBER, DEFAULT_PAGE_SIZE);
         getServletContext()
                 .getRequestDispatcher("/WEB-INF/jsp/car.jsp")
@@ -66,6 +66,6 @@ public class CarServlet extends HttpServlet {
             springContext = new AnnotationConfigApplicationContext(WebConfig.class);
         }
         return springContext;
-    }
+    }*/
 
 }
