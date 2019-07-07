@@ -1,7 +1,6 @@
 package com.itacademy.database.config;
 
 import lombok.Cleanup;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -10,12 +9,13 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.io.Resource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.io.InputStream;
@@ -64,8 +64,11 @@ public class DatabaseConfig {
     }
 
     @Bean
-    public HibernateTransactionManager transactionManager(SessionFactory sessionFactory){
-        return new HibernateTransactionManager(sessionFactory);
+    public JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory){
+        JpaTransactionManager jpaTransactionManager = new JpaTransactionManager();
+        jpaTransactionManager.setDataSource(dataSource);
+        jpaTransactionManager.setEntityManagerFactory(entityManagerFactory);
+        return jpaTransactionManager;
     }
 
     @Bean

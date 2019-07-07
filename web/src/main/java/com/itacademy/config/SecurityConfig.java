@@ -18,6 +18,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+    private static final String[] AUTH_WHITELIST = {
+            "/registration",
+            "/index.jsp"};
 
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
@@ -26,7 +29,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .anyRequest().permitAll()
+                .antMatchers(AUTH_WHITELIST).permitAll()
+                .anyRequest()
+                .authenticated()
                 .and()
                 .formLogin()
                 .and()

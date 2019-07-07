@@ -1,4 +1,4 @@
-package com.itacademy.controller;
+package com.itacademy.controller.form;
 
 import com.itacademy.database.entity.Role;
 import lombok.Getter;
