@@ -27,28 +27,4 @@ public class CarDao extends BaseDaoImpl<Long, CarEntity> {
                 .build();
 
     }
-
-    public List<CarEntity> getEntriesWithFilter(Session session, String brand, String model, Double price, Integer pageNumber, Integer pageCount) {
-        Query<CarEntity> query = session
-                .createQuery(
-                        "select e from CarEntity e where e.brand = :brand and e.model = :model and e.price > :price order by e.price ", CarEntity.class)
-                .setParameter("brand", brand)
-                .setParameter("model", model)
-                .setParameter("price", price);
-
-        query.setFirstResult((pageNumber - 1) * pageCount);
-        query.setMaxResults(pageCount);
-        List<CarEntity> carEntities = query.list();
-        return carEntities;
-    }
-
-    public List<CarEntity> getEntriesWithFilter(String brand, String model, Double price, Integer pageNumber, Integer pageCount) {
-        @Cleanup Session session = getSession();
-        try {
-            return getEntriesWithFilter(session, brand, model, price, pageNumber, pageCount);
-        } finally {
-            session.close();
-        }
-    }
-
 }

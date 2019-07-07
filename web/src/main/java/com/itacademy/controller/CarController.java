@@ -20,7 +20,7 @@ public class CarController {
         return "carList";
     }
 
-    @PostMapping
+    @PostMapping(value = "/cars")
     public String doPost(Model model, @ModelAttribute("carForm") CarForm carForm) {
         System.out.println("carForm="+carForm);
         model.addAttribute("carList", carService.getFiltered("BMW", "X6", 200.0, carForm.getPageNumber(), carForm.getPageCount()));

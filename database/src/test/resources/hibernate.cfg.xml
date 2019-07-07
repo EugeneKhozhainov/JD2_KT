@@ -15,10 +15,8 @@
     <property name="hibernate.hbm2ddl.auto">create-drop</property>
 
     <mapping class="com.itacademy.database.entity.UserEntity"/>
-    <mapping class="com.itacademy.database.entity.Company"/>
     <mapping class="com.itacademy.database.entity.OrderEntity"/>
     <mapping class="com.itacademy.database.entity.CarEntity"/>
-    <mapping class="com.itacademy.database.entity.CarDescription"/>
 
   </session-factory>
 </hibernate-configuration>

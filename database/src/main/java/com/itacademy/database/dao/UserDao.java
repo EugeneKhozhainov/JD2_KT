@@ -16,7 +16,6 @@ public class UserDao extends  BaseDaoImpl<Long, UserEntity> {
                 .name("Eugene")
                 .username("Eugene")
                 .password("password")
-                .company(CompanyDao.getInstance().getDefaultCompany())
                 .role(Role.ADMIN)
                 .build();
     }

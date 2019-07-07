@@ -24,5 +24,8 @@ public class CarEntity extends BaseEntity<Long>{
 
     public String status;
 
+    @OneToOne
+    @JoinColumn(name = "order_id")
+    private OrderEntity order;
 
 }

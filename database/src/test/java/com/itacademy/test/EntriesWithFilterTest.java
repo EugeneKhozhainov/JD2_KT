@@ -8,8 +8,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.junit.Test;
-
-import javax.smartcardio.Card;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -57,9 +55,5 @@ public class EntriesWithFilterTest {
         session.save(car3);
         session.save(car4);
         session.save(car5);
-
-        List<CarEntity> carList = CarDao.getInstance().getEntriesWithFilter(session,"Ford", "Focus", 50.0, 1, 5);
-        assertEquals(carList.size(), 5);
-        session.close();
     }
 }

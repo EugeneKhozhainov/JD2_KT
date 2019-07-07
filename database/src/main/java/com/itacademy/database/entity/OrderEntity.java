@@ -1,36 +1,34 @@
 package com.itacademy.database.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
 @EqualsAndHashCode(of = "id")
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "orders", schema = "car_rent_storage")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class OrderEntity extends BaseEntity<Long> {
 
-    public String passport;
+    public LocalDate created;
 
-    public Date created;
+    public LocalDate dateFrom;
 
-    public Date dateFrom;
-
-    public Date dateTo;
+    public LocalDate dateTo;
 
     @Enumerated(EnumType.STRING)
     public OrderStatus status;
 
-    public String rejectReason;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "order_id", nullable = false)
+    private UserEntity user;
 
-    public String damageDescription;
-
-    public Integer carId;
+    @OneToOne(mappedBy = "order")
+    private CarEntity car;
 }
