@@ -34,7 +34,7 @@ public class RegistrationController {
 
         userService.save(userEntity);
 
-        return "menu";
+        return "reg_success";
     }
 
 }

@@ -32,4 +32,10 @@ public class CarService {
         List<CarEntity> filtered = carRepository.getFiltered(brand, model, price, pageRequest);
         return filtered;
     }
+
+    public List<CarEntity> getAll(Integer pageNumber, Integer pageCount) {
+        Pageable pageRequest = PageRequest.of(pageNumber - 1, pageCount);
+        List<CarEntity> all = carRepository.getAll(pageRequest);
+        return all;
+    }
 }
