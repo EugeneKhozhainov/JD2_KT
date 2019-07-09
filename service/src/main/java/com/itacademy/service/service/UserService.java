@@ -44,4 +44,8 @@ public class UserService {
         return userEntity;
     }
 
+    public UserEntity findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
 }
