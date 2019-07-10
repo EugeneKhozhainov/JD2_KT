@@ -18,6 +18,9 @@ import java.util.Date;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class OrderEntity extends BaseEntity<Long> {
 
+    @Version
+    private Integer version;
+
     private String passport;
 
     private LocalDate created;
@@ -32,6 +35,14 @@ public class OrderEntity extends BaseEntity<Long> {
     private Double amount;
 
     private String description;
+
+    public String getDeliveryDescription() {
+        return dateFrom + "-" + dateTo + ", " + getCar().getDescription();
+    }
+
+    public String getReturnDescription() {
+        return dateFrom + "-" + dateTo + ", " + getCar().getDescription();
+    }
 
     @OneToOne
     @JoinColumn(name = "user_id")

@@ -7,7 +7,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-
 import java.util.List;
 
 @Repository
@@ -18,5 +17,11 @@ public interface OrderRepository extends PagingAndSortingRepository<OrderEntity,
 
     @Query("select e from OrderEntity e where e.user.id = :userId")
     List<OrderEntity> getUserList(@Param("pageable") Pageable pageable, @Param("userId") Long userId);
+
+    @Query("select e from OrderEntity e where e.status = 'BOOKED'")
+    List<OrderEntity> getOrdersToDelivery();
+
+    @Query("select e from OrderEntity e where e.status = 'DELIVERED'")
+    List<OrderEntity> getOrdersToReturn();
 
 }

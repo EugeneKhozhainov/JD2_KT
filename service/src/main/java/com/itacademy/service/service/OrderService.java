@@ -1,6 +1,5 @@
 package com.itacademy.service.service;
 
-import com.itacademy.database.dao.OrderDao;
 import com.itacademy.database.entity.OrderEntity;
 import com.itacademy.database.entity.UserEntity;
 import com.itacademy.database.repository.OrderRepository;
@@ -20,7 +19,6 @@ import java.util.Optional;
 public class OrderService {
 
     private static final OrderService INSTANCE = new OrderService();
-    private final OrderDao orderDao = OrderDao.getInstance();
 
     @Autowired
     private OrderRepository orderRepository;
@@ -33,7 +31,7 @@ public class OrderService {
     }
 
     public Optional<OrderEntity> getById(Long id) {
-        Optional<OrderEntity> getid = orderDao.getId(id);
+        Optional<OrderEntity> getid = orderRepository.findById(id);
         return getid;
     }
 
@@ -49,6 +47,20 @@ public class OrderService {
         Pageable pageRequest = PageRequest.of(pageNumber - 1, pageCount);
         List<OrderEntity> list = orderRepository.getUserList(pageRequest, userEntity.getId());
         return list;
+    }
+
+    public List<OrderEntity> getOrdersToDelivery() {
+        List<OrderEntity> list = orderRepository.getOrdersToDelivery();
+        return list;
+    }
+
+    public List<OrderEntity> getOrdersToReturn() {
+        List<OrderEntity> list = orderRepository.getOrdersToReturn();
+        return list;
+    }
+
+    public void save(OrderEntity orderEntity) {
+        orderRepository.save(orderEntity);
     }
 
 }

@@ -16,7 +16,7 @@ public class CarController {
     private CarService carService;
 
     @GetMapping(value = "/cars")
-    public String getReview(Model model) {
+    public String doGet(Model model) {
         model.addAttribute("carList", carService.getFiltered("BMW", "X6", 200.0, 1, 5));
         return "carList";
     }
