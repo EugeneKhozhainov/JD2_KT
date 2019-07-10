@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Model catalog</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>Model catalog</h1>
+<br/><br/>
+<div>
+    <table border="1" cellpadding="5" cellspacing="1" >
+        <tr>
+            <th>id</th>
+            <th>model</th>
+        </tr>
+        <tr th:each ="model : ${modelList}">
+            <td th:utext="${model.id}">...</td>
+            <td th:utext="${model.name}">...</td>
+        </tr>
+    </table>
+    <form method="Post" action="/modelcatalog" object="${modelFormDelete}">
+        <p>Delete existing entry</p>
+        Delete: <input type="textfield" name="id"/>
+        <input type="submit" value="submit" name="Submit delete"/>
+    </form>
+
+    <form method="Post" action="/modelcatalog" object="${modelFormAdd}">
+        <p>Add new entry</p>
+        Add: <input type="textfield" name="name"/>
+        <input type="submit" value="submit" name="Submit add"/>
+    </form>
+</div>
+</body>
+</html>
