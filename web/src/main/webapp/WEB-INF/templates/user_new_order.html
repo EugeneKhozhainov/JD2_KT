@@ -7,40 +7,17 @@
 
 <h1>New Order</h1>
 
-<table border="1" cellpadding="5" cellspacing="1" >
-    <tr>
-        <th>id</th>
-        <th>brand</th>
-        <th>model</th>
-        <th>price</th>
-        <th>status</th>
-    </tr>
-    <tr th:each ="car : ${carList}">
-        <td th:utext="${car.id}">...</td>
-        <td th:utext="${car.brand}">...</td>
-        <td th:utext="${car.model}">...</td>
-        <td th:utext="${car.price}">...</td>
-        <td th:utext="${car.status}">...</td>
-    </tr>
-</table>
-
-<form method="Post" action="/neworder" object="${carForm}">
-
-    Page size
-    <select name="pageCount">
-        <option>5</option>
-        <option>10</option>
-        <option>15</option>
-    </select>
-    Page number
-    <input type="textfield" name="pageNumber" />
-    <input type="submit" value="submit" name="Submit"/>
-</form>
-
 <form method="POST" action="/neworder" object="${orderForm}">
+    <p>Car:<select name="carId">
+        <option th:each="car : ${carList}"
+                th:value="${car.id}"
+                th:text="${car.getDescription()}" />
+    </select></p>
+
+
     <p>Date from:<input type="date" name="dateFrom"></p>
     <p>Date to:<input type="date" name="dateTo"></p>
-    <p>Car: <input type="text" name="car"></p>
+    <p>Passport: <input type="text" name="passport"></p>
     <input type="submit" value="Submit" />
 
 </form>

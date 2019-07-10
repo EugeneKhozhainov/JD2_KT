@@ -7,6 +7,8 @@ import java.time.LocalDate;
 import java.util.Date;
 
 @Data
+@Getter
+@Setter
 @EqualsAndHashCode(of = "id")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,19 +18,31 @@ import java.util.Date;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class OrderEntity extends BaseEntity<Long> {
 
-    public LocalDate created;
+    private String passport;
 
-    public LocalDate dateFrom;
+    private LocalDate created;
 
-    public LocalDate dateTo;
+    private LocalDate dateFrom;
+
+    private LocalDate dateTo;
 
     @Enumerated(EnumType.STRING)
-    public OrderStatus status;
+    private OrderStatus status;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "order_id", nullable = false)
+    private Double amount;
+
+    private String description;
+
+    @OneToOne
+    @JoinColumn(name = "user_id")
     private UserEntity user;
 
-    @OneToOne(mappedBy = "order")
+    @OneToOne
+    @JoinColumn(name = "admin_id")
+    private UserEntity admin;
+
+    @OneToOne
+    @JoinColumn(name = "car_id")
     private CarEntity car;
+
 }

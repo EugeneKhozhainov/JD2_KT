@@ -1,6 +1,7 @@
 package com.itacademy.controller;
 
 import com.itacademy.controller.form.CarForm;
+import com.itacademy.controller.form.OrderForm;
 import com.itacademy.service.service.OrderService;
 import com.itacademy.service.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +25,9 @@ public class OrderListController {
     }
 
     @PostMapping(value = "/orders")
-    public String doPost(Model model, @ModelAttribute("orderForm") CarForm carForm) {
-        model.addAttribute("orderList", orderService.getAll(carForm.getPageNumber(), carForm.getPageCount()));
+    public String doPost(Model model, @ModelAttribute("orderForm") OrderForm orderForm) {
+        model.addAttribute("orderList", orderService.getUserOrders(orderForm.getPageNumber(), orderForm.getPageCount()));
         return "orderList";
     }
+
 }

@@ -2,12 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
-    <title>Order List</title>
+    <title>My Order List</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-<h1>Order List</h1>
-<br/><br/>
+<h1>My Order List</h1>
+<br/>
 <div>
     <table border="1" cellpadding="5" cellspacing="1" >
         <tr>
@@ -19,10 +19,10 @@
         </tr>
         <tr th:each ="order : ${orderList}">
             <td th:utext="${order.created}">...</td>
-            <td th:utext="${order.datefrom}">...</td>
-            <td th:utext="${order.dateto}">...</td>
+            <td th:utext="${order.dateFrom}">...</td>
+            <td th:utext="${order.dateTo}">...</td>
             <td th:utext="${order.status}">...</td>
-            <td th:utext="${order.carid}">...</td>
+            <td th:utext="${order.car.getDescription()}">...</td>
         </tr>
     </table>
 
@@ -39,6 +39,9 @@
         <input type="submit" value="submit" name="Submit"/>
     </form>
 
+</div>
+<div>
+<a th:href="@{/user_menu}">Back to menu</a>
 </div>
 </body>
 </html>

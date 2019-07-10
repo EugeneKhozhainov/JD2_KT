@@ -2,7 +2,10 @@ package com.itacademy.database.entity;
 
 import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
 @Data
 @Getter
@@ -24,8 +27,8 @@ public class CarEntity extends BaseEntity<Long>{
 
     public String status;
 
-    @OneToOne
-    @JoinColumn(name = "order_id")
-    private OrderEntity order;
+    public String getDescription() {
+        return brand + " " + model + ", price: " + price;
+    }
 
 }

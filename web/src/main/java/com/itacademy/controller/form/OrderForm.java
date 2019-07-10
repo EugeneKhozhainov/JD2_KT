@@ -14,11 +14,12 @@ import java.time.LocalDate;
 @ToString
 public class OrderForm {
 
-    private Long id;
-    private LocalDate created;
-    private LocalDate dateFrom;
-    private LocalDate dateTo;
-    private OrderStatus status;
-    private UserEntity user;
-    private CarEntity car;
+    private Long carId;
+    private String passport;
+    private String dateFrom;
+    private String dateTo;
+
+    private Integer pageCount;
+    private Integer pageNumber;
+
 }

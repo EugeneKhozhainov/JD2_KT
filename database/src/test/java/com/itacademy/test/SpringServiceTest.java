@@ -39,7 +39,7 @@ public class SpringServiceTest {
                 .dateFrom(LocalDate.now())
                 .dateTo(LocalDate.of(2020, 06, 16))
                 .user(user)
-                .status(OrderStatus.PENDING)
+                .status(OrderStatus.BOOKED)
                 .car(car)
                 .build();
 

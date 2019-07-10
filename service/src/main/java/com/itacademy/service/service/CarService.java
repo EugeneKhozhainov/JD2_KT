@@ -38,4 +38,9 @@ public class CarService {
         List<CarEntity> all = carRepository.getAll(pageRequest);
         return all;
     }
+
+    public List<CarEntity> getFree() {
+        return carRepository.getFree();
+    }
+
 }

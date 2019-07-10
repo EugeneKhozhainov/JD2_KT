@@ -4,13 +4,9 @@
     <title>Car Rental System</title>
 </head>
 <body>
+<h1>Error:</h1>
 
-<h1>Car Rental System. User menu</h1>
-
-<a th:href="@{/neworder}">New Order</a>
-<br>
-<a th:href="@{/orders}">My Orders</a>
-<br>
+<span th:text="${errorMessage}">The error message</span>
 
 </body>
 </html>

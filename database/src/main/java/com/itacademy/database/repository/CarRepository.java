@@ -19,4 +19,8 @@ public interface CarRepository extends PagingAndSortingRepository<CarEntity, Lon
     List<CarEntity> getAll(Pageable pageable);
 
     CarEntity findByBrand(String brand);
+
+    @Query("select e from CarEntity e where e.id not in (select o.car.id from OrderEntity o where o.car.id = e.id and o.status in ('BOOKED', 'DELIVERED'))")
+    List<CarEntity> getFree();
+
 }
